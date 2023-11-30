@@ -1,6 +1,6 @@
-import { Color } from "./Color";
+import { Color } from "../Color";
 import logo from '../assets/bb.png'
-import { Cell } from "./Cell";
+import { Cell } from "../Cell";
 
 export enum FigureNames {
     FIGURE = "figure",
@@ -29,7 +29,16 @@ export class Figure {
         this.id = Math.random();
     }
 
+    getPossibleMoves(): number[][] {
+        // По умолчанию, возвращаем пустой массив. Этот метод будет переопределен в дочерних классах.
+        return [];
+    }
+
     canMove(target: Cell): boolean {
+        if(target.figure?.color === this.color) return false;
+        
+        if(target.figure?.name === FigureNames.KING) return false;
+
         return true;
     }
 

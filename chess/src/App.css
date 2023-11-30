@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+body {
+  --size: 85px;
+}
+
+
 .app {
   width: 100vw;
   height: 100vh;
@@ -12,15 +17,15 @@
   align-items: center;
 }
 .board {
-  width: calc(64px * 8);
-  height: calc(64px * 8);
+  width: calc(var(--size) * 8);
+  height: calc(var(--size) * 8);
   display: flex;
   flex-wrap: wrap;
 }
 
 .cell {
-  width: 64px;
-  height: 64px;
+  width: var(--size);
+  height: var(--size);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,6 +40,17 @@
 }
 
 .figure-logo {
-  width: 64px;
-  height: 64px;
+  width: var(--size);
+  height:  var(--size);
+}
+
+.selected {
+  background-color: aqua;
+}
+
+.available {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: gold;
 }
